@@ -1,8 +1,14 @@
 #!/usr/local/bin/python
 
-from builder import Builder
+import sys
 
-builder = Builder('index.php', 'view')
+from writer import Writer
 
-print builder.getFilePath()
+name = sys.argv[1]
+type = sys.argv[2]
 
+writer = Writer(name, type)
+
+msg = writer.make()
+
+print msg

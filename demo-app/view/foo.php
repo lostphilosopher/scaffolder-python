@@ -1,0 +1,1 @@
+VIEW foo.php

@@ -9,24 +9,28 @@ class Builder:
 
 	def getTemplate(self, type):
 		if (not self.fileName or not self.type or not self.templateDir):
-			return false
+			return 'Error'
 	
-		with open (self.templateDir, "r") as contents:
-			template=content.read().replace('%%NAME%%', self.fileName)
+		with open (self.templateDir + type + '.txt', "r") as contents:
+			template = contents.read().replace('%%NAME%%', self.fileName)
 
 		return template
 
 	def getFilePath(self):
 		if (not self.fileName or not self.type):
-			return false
-
+			return 'Error'
+		
 		with open('paths.json', 'r') as content:
 			pathsJson = content.read()
 		
 		pathsArray = json.loads(pathsJson)
 
+		result = {}
 		for types,paths in pathsArray.iteritems():
 			if (types == self.type):
-				for type,path in paths:
-					print path
-		return 'EXIT'
+				for type,path in paths.iteritems():
+					result[type] = path + self.fileName
+		
+				return result
+
+		return 'Error'

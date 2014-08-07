@@ -3,6 +3,11 @@
 	"controller": "demo-app/controller/",
 	"factory": "demo-app/factory/"
     },
-    "model": "demo-app/model/",
-    "view": "demo-app/view/"
+    "model": {
+	"model": "demo-app/model/"
+    },
+    "view": { 
+	"view": "demo-app/view/",
+	"helper": "demo-app/view/helper/"
+    }
 }
