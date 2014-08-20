@@ -1,1 +1,0 @@
-CONTROLLER foo.php

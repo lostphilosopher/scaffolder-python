@@ -10,6 +10,11 @@ class Writer:
 	def make(self):
 		builder = Builder(self.fileName, self.type)
 
+		filePath = builder.getFilePath()
+
+		if ('Error' in filePath):
+			return filePath
+
 		for type,path in builder.getFilePath().iteritems():
 			file = open(path, 'w')
 			file.write(builder.getTemplate(type))

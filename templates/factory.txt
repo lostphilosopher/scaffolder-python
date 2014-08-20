@@ -1,1 +1,25 @@
-FACTORY %%NAME%%
+<?php
+/**
+ * CaringNetwork
+ *
+ * @category   CaringNetwork
+ * @package    CaringNetwork
+ * @subpackage CaringNetwork\Factory
+ */
+
+namespace Network\Factory\Controller;
+
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+/**
+ * %%NAME%% Factory
+ *
+ * @category   CaringNetwork
+ * @package    CaringNetwork
+ * @subpackage CaringNetwork\Controller
+ */
+class %%NAME%% implements FactoryInterface
+{
+
+}

@@ -1,1 +1,25 @@
-CONTROLLER %%NAME%%
+<?php
+/**
+ * CaringNetwork
+ *
+ * @category   CaringNetwork
+ * @package    CaringNetwork
+ * @subpackage CaringNetwork\Controller
+ */
+
+namespace Network\Controller;
+
+// @todo: Handle uses here...
+
+/**
+ * %%NAME%% controller
+ * @todo: Handle extention 
+ * 
+ * @category   CaringNetwork
+ * @package    CaringNetwork
+ * @subpackage CaringNetwork\Controller
+ */
+class %%NAME%%Controller extends AbstractController
+{
+
+}

@@ -8,8 +8,15 @@ import json # JSON parsing class
 class Builder:
 	'Builder -getTempate -getFilePath'
 	def __init__(self, fileName, type):
+		if ('.' not in fileName):
+			extention = '.err'
+		else:
+			parts = fileName.split(".") # Splits given filepath into path and extention
+			fileName = parts[0]
+			extention = parts[1]
 		self.fileName = fileName
-	        self.type = type
+		self.extention = extention
+		self.type = type # @todo: Check if type is supported
 		self.templateDir = 'templates/' # Path to boiler plate content
 
 	# Gets the boiler plate template text and makes necessary naming substitions
@@ -21,7 +28,7 @@ class Builder:
 			return 'Error'
 	
 		with open (self.templateDir + type + '.txt', "r") as contents:
-			template = contents.read().replace('%%NAME%%', self.fileName)
+			template = contents.read().replace('%%NAME%%', self.fileName.capitalize())
 
 		return template
 
@@ -29,7 +36,7 @@ class Builder:
 	# @return string result: File path
 	#
 	def getFilePath(self):
-		if (not self.fileName or not self.type):
+		if (not self.fileName or not self.type or self.extention == '.err'):
 			return 'Error'
 		
 		with open('paths.json', 'r') as content:
@@ -41,7 +48,7 @@ class Builder:
 		for types,paths in pathsArray.iteritems():
 			if (types == self.type):
 				for type,path in paths.iteritems():
-					result[type] = path + self.fileName
+					result[type] = path + self.fileName + "."  + self.extention
 		
 				return result
 

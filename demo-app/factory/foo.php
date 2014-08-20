@@ -1,1 +1,0 @@
-FACTORY foo.php
